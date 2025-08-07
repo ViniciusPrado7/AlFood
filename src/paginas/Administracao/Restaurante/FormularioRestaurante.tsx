@@ -1,8 +1,9 @@
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { AppBar, Box, Button, Container, Link, Paper, TextField, Toolbar, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import IRestaurante from '../../../interfaces/IRestaurante'
 import http from '../../../http'
+import { Link as RouterLink } from 'react-router-dom'
 
 const FormularioRestaurante = () => {
 
@@ -38,21 +39,25 @@ const FormularioRestaurante = () => {
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: "column", alignItems: "center" }}>
-      <Typography component="h1" variant='h6'>Formulário de Restaurantes</Typography>
-      <Box component="form" onSubmit={aoSubmeterForm}>
-        <TextField
-          value={nomeRestaurante}
-          onChange={evento => setNomeRestaurante(evento.target.value)}
-          id="standard-basic"
-          label="Nome do Restaurante"
-          variant="standard"
-          required
-          fullWidth
-        />
-        <Button sx={{ marginTop: 1 }} type='submit' variant="outlined" fullWidth>Salvar</Button>
+    <>
+      <Box sx={{ display: 'flex', flexDirection: "column", alignItems: "center", flexGrow: 1 }}>
+        <Typography component="h1" variant='h6'>Formulário de Restaurantes</Typography>
+        <Box component="form" sx={{ width: '50%' }} onSubmit={aoSubmeterForm}>
+          <TextField
+            value={nomeRestaurante}
+            onChange={evento => setNomeRestaurante(evento.target.value)}
+            id="standard-basic"
+            label="Nome do Restaurante"
+            variant="standard"
+            required
+            fullWidth
+          />
+          <Button sx={{ marginTop: 1 }} type='submit' variant="outlined" fullWidth>Salvar</Button>
+        </Box>
       </Box>
-    </Box>
+
+    </>
+
   )
 }
 
