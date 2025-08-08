@@ -1,13 +1,13 @@
-import { AppBar, Box, Button, Container, Link, Paper, TextField, Toolbar, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import IRestaurante from '../../../interfaces/IRestaurante'
 import http from '../../../http'
-import { Link as RouterLink } from 'react-router-dom'
 
 const FormularioRestaurante = () => {
 
   const parametros = useParams()
+  const [nomeRestaurante, setNomeRestaurante] = useState('')
 
   useEffect(() => {
     if (parametros.id) {
@@ -16,7 +16,7 @@ const FormularioRestaurante = () => {
     }
   }, [parametros])
 
-  const [nomeRestaurante, setNomeRestaurante] = useState('')
+
 
   const aoSubmeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault()
